@@ -1,0 +1,128 @@
+.restaurant-img {
+  height: 160px;
+  width: 100%;
+}
+
+.restaurant-img > img {
+  height: 100%;
+  width: 100%;
+}
+
+
+.home-page-container {
+  padding: 5px 20px;
+}
+
+.restaurant-card > .MuiCardContent-root {
+  padding: 0;
+}
+
+.restaurant-card > .MuiCardContent-root:last-child {
+  padding-bottom: 0;
+}
+
+
+.restaurant-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.restaurant-rating {
+  font-size: small;
+  background-color: #eacc5e;
+  color: white;
+  padding: 8px 20px;
+}
+
+.restaurant-price {
+  font-size: 14px;
+}
+
+.restaurant-body {
+  padding: 20px 25px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.restaurant-name {
+  font-size: 24px;
+  height: 65px;
+}
+
+.restaurant-category {
+  font-size: 17px;
+  min-height: 75px;
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.5;
+}
+
+
+
+.fa-star {
+  padding-right: 5px;
+}
+
+.restaurant-price> .fa-rupee-sign {
+  font-size: 14px;
+  -webkit-text-stroke: .1px white;
+}
+
+.snackbar > .MuiSnackbarContent-root{
+  padding: 6px 25px;
+}
+
+.home-page-container > .MuiGrid-root {
+  width: 97%;
+  margin: auto;
+  padding-top: 10px;
+}
+
+@media only screen and (max-width: 769px) {
+  .restaurant-name {
+    font-size: 22px;
+    height: 55px;
+    margin-bottom: 5px;
+  }
+  .restaurant-category {
+    font-size: 15px;
+    min-height: 65px;
+  }
+  .restaurant-price {
+    font-size: 12px;
+  }
+  .restaurant-rating {
+    font-size: 12px;
+  }
+  .restaurant-price> .fa-rupee-sign {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .restaurant-grid {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .restaurant-grid {
+    width: 97%;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .restaurant-rating {
+    padding: 5px 15px;
+  }
+  .restaurant-body {
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 295px) {
+  .home-page-container {
+    padding: 5px 10px;
+  }
+}
