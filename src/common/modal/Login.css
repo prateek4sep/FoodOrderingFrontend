@@ -1,0 +1,59 @@
+.error-msg {
+  color: #e06763;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.modal-container > #scrollable-auto-tabpanel-1 > .MuiBox-root{
+  padding-bottom: 5px;
+}
+
+.modal-container > #scrollable-auto-tabpanel-0 > .MuiBox-root{
+  padding-bottom: 5px;
+}
+
+
+.MuiFormControl-root {
+  width: 100%;
+  margin-bottom: 10px !important;
+}
+.footer,
+.signupFooter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+
+.loginButton,
+.signupButton {
+  background-color: #3f51b5 !important;
+  color: #fff !important;
+  width: 80px !important;
+}
+
+.modal-container > #scrollable-auto-tabpanel-1 > .MuiBox-root{
+  padding-bottom: 5px;
+}
+
+.modal-container > #scrollable-auto-tabpanel-0 > .MuiBox-root{
+  padding-bottom: 5px;
+}
+
+@media only screen and (max-width: 800px) {
+  .ReactModalPortal > div:first-child > div:first-child {
+    width: 300px !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .ReactModalPortal > div:first-child > div:first-child {
+    width: 280px !important;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .ReactModalPortal > div:first-child > div:first-child {
+    width: 240px !important;
+  }
+}
