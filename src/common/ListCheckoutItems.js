@@ -28,7 +28,7 @@ class ListCheckoutItems extends Component {
             <div className={this.props.page + "-item-section3"}>
               {this.props.page === "details" ?
                 <div className="details-minus-section">
-                  <IconButton onClick={() => this.props.removeItemHandler(item)} style={{ color: "black" }}>
+                  <IconButton onClick={() => this.props.removeItemDetailsHandler(item)} style={{ color: "black" }}>
                     <RemoveIcon className="details-cart-icon" fontSize="small" />
                   </IconButton>
                 </div>
@@ -36,7 +36,7 @@ class ListCheckoutItems extends Component {
               <span className={this.props.page + "-item-name"}>{item.quantity}</span>
               {this.props.page === "details" ?
                 <div className="details-plus-section">
-                  <IconButton onClick={() => this.props.addItemHandler(item, true)} style={{ color: "black" }}>
+                  <IconButton onClick={() => this.props.addItemDetailsHandler(item, true)} style={{ color: "black" }}>
                     <AddIcon className="details-cart-icon" fontSize="small" />
                   </IconButton>
                 </div>

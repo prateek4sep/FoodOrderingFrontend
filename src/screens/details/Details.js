@@ -207,7 +207,7 @@ class Details extends Component {
             </IconButton>
           ]}
           className="details-snackbar"
-        ></Snackbar>
+        />
 
         {Object.keys(this.state.restaurant).length !== 0 ? (
           <div className="details-body-container">
@@ -293,13 +293,13 @@ class Details extends Component {
                                     className="fa fa-circle"
                                     aria-hidden="true"
                                     style={{ color: "#138313" }}
-                                  ></i>
+                                  />
                                 ) : (
                                   <i
                                     className="fa fa-circle"
                                     aria-hidden="true"
                                     style={{ color: "#c30909" }}
-                                  ></i>
+                                  />
                                 )}
                               </ListItemIcon>
                               <ListItemText
@@ -312,7 +312,7 @@ class Details extends Component {
                                   className="fa fa-rupee-sign"
                                   aria-hidden="true"
                                   style={{ color: "black" }}
-                                ></i>
+                                />
                               </ListItemIcon>
                               <ListItemText primary={item.price.toFixed(2)} />
                               <IconButton
