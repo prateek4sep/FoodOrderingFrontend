@@ -22,7 +22,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Typography from "@material-ui/core/Typography";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Grid from "@material-ui/core/Grid";
-import {ADD_ADDRESS_URL, GET_ADDRESS_CUSTOMER_URL, GET_STATES_URL} from "../../common/common";
+import {ADD_ADDRESS_URL, GET_ADDRESS_CUSTOMER_URL, GET_PAYMENT_METHODS_URL, GET_STATES_URL} from "../../common/common";
+import {FormControlLabel, FormLabel, Radio, RadioGroup} from "@material-ui/core";
 
 class Checkout extends Component {
     constructor() {
@@ -54,6 +55,7 @@ class Checkout extends Component {
         if ( localStorage.getItem('access-token') !== null) {
             this.fetchAddress();
             this.fetchStates();
+            this.fetchPayments();
         }
     }
 
@@ -111,8 +113,7 @@ class Checkout extends Component {
                                         </GridList>
                                     }
                                 </div>
-                                <div id='new-address-display'
-                                     className={this.state.activeTab === 'newAddress' ? 'display-block' : 'display-none'}>
+                                <div id='new-address-display' className={this.state.activeTab === 'newAddress' ? 'display-block' : 'display-none'}>
                                     <FormControl style={{maxWidth: 300}}>
                                         <InputLabel htmlFor='flat'>Flat/Building No</InputLabel>
                                         <Input id='flat' name='flat' type='text' value={this.state.flat}
@@ -186,6 +187,17 @@ class Checkout extends Component {
                         <Step key='Payment'>
                             <StepLabel>Payment</StepLabel>
                             <StepContent>
+                                <div id='payment-modes'>
+                                    <FormControl>
+                                        <FormLabel>Select Mode of Payment</FormLabel>
+                                        <RadioGroup onChange={this.paymentSelectionHandler} value={this.state.paymentId}>
+                                            {(this.state.payments || []).map((payment, index) => (
+                                                <FormControlLabel key={payment.id} value={payment.id} control={<Radio/>}
+                                                                  label={payment.payment_name}/>
+                                            ))}
+                                        </RadioGroup>
+                                    </FormControl>
+                                </div>
                                 <Button style={{margin: 5}} onClick={this.decrementActiveStep}>Back</Button>
                                 <Button style={{margin: 5}} variant="contained" color="primary" onClick={this.incrementActiveStep}>Finish</Button>
                             </StepContent>
@@ -197,6 +209,9 @@ class Checkout extends Component {
         </Fragment>
     }
 
+    paymentSelectionHandler = (e) => {
+        this.setState({'paymentId': e.target.value});
+    }
 
     incrementActiveStep = () => {
         if (this.state.activeStep === 0 && this.state.selectedAddressId === undefined) {
@@ -275,7 +290,6 @@ class Checkout extends Component {
         xhr.open('GET', GET_ADDRESS_CUSTOMER_URL);
         xhr.setRequestHeader('authorization', 'Bearer ' + token);
         xhr.setRequestHeader("Cache-Control", "no-cache");
-
         xhr.send();
     }
 
@@ -363,6 +377,21 @@ class Checkout extends Component {
         xhr.setRequestHeader("Cache-Control", "no-cache");
         xhr.setRequestHeader('content-type', 'application/json');
         xhr.send(JSON.stringify(address));
+    }
+
+    fetchPayments = () => {
+        let xhr = new XMLHttpRequest();
+        let that = this;
+
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                that.setState({payments: JSON.parse(this.responseText).paymentMethods});
+            }
+        });
+
+        xhr.open('GET', GET_PAYMENT_METHODS_URL);
+        xhr.setRequestHeader("Cache-Control", "no-cache");
+        xhr.send();
     }
 
 }
