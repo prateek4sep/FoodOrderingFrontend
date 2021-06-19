@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import FoodOrderingAppController from './FoodOrderingAppController';
 import * as serviceWorker from './serviceWorker';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 ReactDOM.render(
     <FoodOrderingAppController />,
