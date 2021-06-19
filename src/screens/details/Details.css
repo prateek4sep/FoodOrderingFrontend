@@ -1,0 +1,654 @@
+.details-snackbar > .MuiPaper-root {
+    width: 350px;
+    padding: 2px 16px 2px 25px;
+    margin-left: 5px;
+  }
+  
+  .details-body-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .details-restaurant-info-section {
+    display: flex;
+    background-color: #e0dfdf;
+    padding: 25px;
+    height: auto;
+  }
+  
+  .details-restaurant-image {
+    height: 180px;
+    width: 230px;
+  }
+  
+  .details-restaurant-info {
+    display: flex;
+    flex-direction: column;
+    padding-left: 60px;
+    width: 100%;
+  }
+  
+  .details-restaurant-name > p {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  
+  .details-restaurant-locality > p {
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+  
+  .details-restaurant-categories > p {
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+  
+  .details-reataurant-rating-cost-info {
+    display: flex;
+  }
+  
+  .details-restaurant-rating-info {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  
+  .details-restaurant-icon {
+    font-size: 16px;
+    margin-bottom: 3px;
+  }
+  
+  .details-restaurant-text {
+    font-size: 13px;
+    color: grey;
+    margin: 0;
+  }
+  
+  .details-restaurant-cost-info {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  
+  .details-menu-cart-section {
+    display: flex;
+    padding: 20px;
+  }
+  
+  .details-menu {
+    width: 45%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10%;
+  }
+  
+  .details-menu > ul:first-child {
+    padding-top: 0;
+  }
+  
+  .details-menu-list-item > li {
+    padding-left: 0;
+    padding-right: 0;
+    color: black;
+    height: 40px;
+  }
+  
+  .details-menu-item-type > div:first-child  {
+    min-width: 35px;
+  }
+  
+  .details-menu-item-type > div:nth-child(2) {
+    width: 67%;
+    padding-right: 10px;
+  }
+  
+  .details-menu-item-type > div:nth-child(3) {
+    min-width: 12px;
+  }
+  
+  .details-menu-item-type > div:nth-child(4) {
+    min-width: 80px;
+  }
+  
+  .details-menu-item-type > div:last-child {
+    min-width: 35px;
+  }
+  
+  .details-item-section1 > .fa-circle {
+    font-size: 14px;
+  }
+  
+  /* .details-item-section1 > .fa-rupee-sign {
+    font-size: 13px;
+  } */
+  
+  .details-cart {
+    width: 41%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .details-card {
+    padding: 10px;
+  }
+  
+  .details-card > div:first-child {
+    padding: 15px;
+  }
+  
+  .details-card-header {
+    margin-bottom: 20px;
+  }
+  
+  .details-card-header > span:first-child > .MuiBadge-badge {
+    z-index: 0;
+  }
+  
+  .details-card > .MuiCardContent-root > div:first-child > span:first-child > svg {
+    font-size: 30px;
+  }
+  
+  .details-card-title {
+    padding-left: 25px;
+    font-size: 23px;
+    font-weight: bold;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  }
+  
+  .details-cart-item > ul > li {
+    padding: 0;
+    height: 25px;
+    margin-bottom: 3px;
+  }
+  
+  .details-cart-item > ul {
+    padding: 0;
+  }
+  
+  .details-item-name {
+    font-size: 17px;
+  }
+  
+  .details-item-section1 {
+    width: 12%;
+  }
+  
+  .details-item-section2 {
+    width: 50%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .details-item-section3 {
+    display: flex;
+    align-items:center;
+  }
+  
+  .details-item-section4 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 30%;
+    color: grey;
+  }
+  
+  .details-item-section3 > button {
+    padding: 0;
+  }
+  
+  .details-item-section3 > span {
+    text-align: center;
+  }
+  
+  .details-minus-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .details-cart-icon {
+    stroke: black;
+    stroke-width: 1.5;
+  }
+  
+  .details-cart-icon:hover {
+    background-color: yellow;
+  }
+  
+  .details-item-section4 > span > .fa-rupee-sign {
+    font-size: 14px;
+    -webkit-text-stroke: .1px white;
+  }
+  
+  .details-item-price {
+    font-size: 15px;
+  }
+  
+  .details-cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 20px;
+  }
+  
+  .details-cart-total > p {
+    font-weight: bold;
+    font-size: 15px;
+  }
+  
+  .details-cart-total > span> .fa-rupee-sign {
+    font-size: 14px;
+  }
+  
+  .details-cart-button {
+    width: 100%;
+  }
+  
+  .details-card > .MuiCardContent-root > button {
+    font-size: 15px;
+    margin-top: 15px;
+  }
+  
+  .details-break-line {
+    display: none;
+  }
+  
+  @media only screen and (max-width: 1200px) and (min-width: 901px) {
+    .details-menu {
+      margin-right: 8%;
+    }
+  
+    .details-cart {
+      width: 43%;
+    }
+  
+    .details-menu-item-type > div:nth-child(4) {
+      min-width: 75px;
+    }
+  
+    .details-snackbar > .MuiPaper-root {
+      width: 300px;
+    }
+  }
+  
+  @media only screen and (max-width: 900px)  and (min-width: 875px) {
+    .details-menu {
+      margin-right: 6%;
+    }
+  
+    .details-cart {
+      width: 45%;
+    }
+  
+    .details-snackbar > .MuiPaper-root {
+      width: 200px;
+    }
+  
+    .details-item-section1 > .fa-stop-circle {
+      width: 30px;
+    }
+  }
+  
+  @media only screen and (max-width: 874px)  and (min-width: 769px) {
+    .details-menu {
+      margin-right: 4%;
+    }
+  
+    .details-cart {
+      width: 47%;
+    }
+  
+    .details-snackbar > .MuiPaper-root {
+      width: 200px;
+    }
+  
+    .details-item-section1 > .fa-stop-circle {
+      width: 30px;
+    }
+  
+    .details-item-name {
+      font-size: 15px;
+    }
+  
+    .details-card > div:first-child {
+      padding: 11px;
+    }
+  }
+  
+  
+  @media only screen and (max-width: 768px) {
+    .details-restaurant-info-section {
+      flex-direction: column;
+      align-items: center;
+      padding-top: 6px;
+      padding-bottom: 10px;
+    }
+  
+    .details-restaurant-image {
+      height: 150px;
+      width: 250px;
+    }
+  
+    .details-restaurant-info {
+      align-items: center;
+      padding: 0;
+    }
+  
+    .details-restaurant-name > p {
+      font-size: 22px;
+      margin-top: 9px;
+      margin-bottom: 3px;
+      text-align: center;
+    }
+    
+    .details-restaurant-locality > p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    
+    .details-restaurant-categories > p {
+      font-size: 13px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  
+    .details-reataurant-rating-cost-info {
+      text-align: center;
+      width: 300px;
+    }
+    
+    .details-restaurant-icon {
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+    
+    .details-restaurant-text {
+      font-size: 11px;
+    }
+  
+    .details-menu-cart-section {
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+    }
+  
+    .details-menu {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+      margin-right: 0;
+    }
+  
+    .details-menu-list-item {
+      padding: 0;
+      margin: 0 20px;
+    }
+  
+    .details-menu-list-item > .MuiListSubheader-root {
+      font-size: 13px;
+    }
+  
+    .details-menu-item-type > div:nth-child(2) > span {
+      font-size: 15px;
+    }
+  
+    .details-menu-item-type > div:nth-child(4) > span {
+      font-size: 15px;
+    }
+  
+    .details-menu-item-type > div:last-child > svg{
+      font-size: 20px;
+    }
+  
+    .details-item-section1 > .fa-circle {
+      font-size: 13px;
+    }
+    
+    .details-snackbar > .MuiPaper-root {
+      width: 150px;
+      padding: 0 16px 0 25px;
+    }
+  
+    .details-cart {
+      width: 95%;
+    }
+  
+    .details-card > .MuiCardContent-root > div:first-child > span:first-child > svg {
+      font-size: 25px;
+    }
+  
+    .details-card-title {
+      font-size: 20px;
+    }
+  
+    .details-card-header {
+      margin-bottom: 15px;
+    }
+  
+    .details-cart-total {
+      margin-top: 15px;
+    }
+  
+    .details-item-name {
+      color: black;
+      font-size: 16px;
+    }
+  
+    .details-item-section2, .details-item-section3, .details-item-section4 > span {
+      font-size: 15px;
+    }
+  
+    .details-item-section4 > span > .fa-rupee-sign {
+      font-size: 13px;
+    }
+  
+    .details-cart-total > p {
+      font-size: 14px;
+    }
+  
+    .details-cart-total > span {
+      font-size: 14px;
+    }
+  
+    .details-cart-total > span> .fa-rupee-sign {
+      font-size: 13px;
+    }
+  
+    .details-card > .MuiCardContent-root > button {
+      font-size: 14px;
+      margin-top: 15px;
+    }
+  
+    .details-item-section1 > .fa-stop-circle {
+      width: 15%;
+  }
+  
+  }
+  
+  @media only screen and (max-width: 500px) {
+  
+    .details-menu-list-item {
+      margin: 0 15px;
+    }
+  
+    .details-menu-list-item > .MuiListSubheader-root {
+      font-size: 12px;
+    }
+  
+    .details-menu-item-type > div:nth-child(2) > span {
+      font-size: 14px;
+    }
+  
+    .details-menu-item-type > div:nth-child(4) > span {
+      font-size: 14px;
+    }
+  
+    .details-menu-item-type > div:last-child > svg{
+      font-size: 18px;
+    }
+  
+    .details-item-section1 > .fa-circle {
+      font-size: 12px;
+    }
+  
+    .details-menu-item-type > div:nth-child(4) {
+      min-width: 60px;
+    }
+  
+    .details-card > .MuiCardContent-root > div:first-child > span:first-child > svg {
+      font-size: 20px;
+    }
+  
+    .details-card-title {
+      font-size: 18px;
+    }
+  
+    .details-card-header {
+      margin-bottom: 13px;
+    }
+  
+    .details-cart-total {
+      margin-top: 13px;
+    }
+  
+    .details-item-section2, .details-item-section3, .details-item-section4 > span {
+      font-size: 14px;
+    }
+  
+    .details-item-section1 > .fa-stop-circle {
+      min-width: 30px;
+    }
+  
+    .details-item-section4 > span > .fa-rupee-sign {
+      font-size: 13px;
+    }
+  
+    .details-cart-total > p {
+      font-size: 13px;
+    }
+  
+    .details-cart-total > span {
+      font-size: 14px;
+    }
+  
+    .details-cart-total > span> .fa-rupee-sign {
+      font-size: 13px;
+    }
+  
+    .details-card {
+      padding: 0;
+    }
+  
+    .details-card > .MuiCardContent-root > button {
+      font-size: 13px;
+      margin-top: 14px;
+    }
+  
+    .details-card-title {
+      padding-left: 23px;
+    }
+  
+    .details-minus-section > .MuiIconButton-root {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+  
+    .details-plus-section > .MuiIconButton-root {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+  
+  }
+  
+  @media only screen and (max-width: 395px) {
+  
+    .details-minus-section > .MuiButtonBase-root {
+      padding: 0 6px;
+    }
+  
+    .details-plus-section > .MuiButtonBase-root {
+      padding: 0 6px;
+    }
+  
+    .details-cart-icon {
+      stroke-width: 1.2;
+    }
+    
+  }
+  
+  @media only screen and (max-width: 380px) {
+  
+    .details-cart-item > ul > li {
+      padding: 0;
+      height: 45px;
+      align-items: flex-start;
+    }
+  
+    .details-item-section3 {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+  
+    .details-minus-section > .MuiButtonBase-root {
+      padding: 0 8px;
+    }
+  
+    .details-plus-section > .MuiButtonBase-root {
+      padding: 0 8px;
+    }
+    
+  }
+  
+  @media only screen and (max-width: 360px) {
+  
+    .details-reataurant-rating-cost-info {
+      width: 280px;
+    }
+  
+    .details-menu-item-type > div:nth-child(4) {
+      min-width: 50px;
+    }
+  
+    .details-item-section1 > .fa-stop-circle {
+      width: 20px;
+    }
+  
+  }
+  
+  @media only screen and (max-width: 332px) {
+  
+    .details-reataurant-rating-cost-info {
+      width: 250px;
+    }
+  
+    .details-menu-item-type > div:nth-child(4) {
+      min-width: 45px;
+    }
+  
+    .details-item-section2 {
+      width: 45%;
+    }
+  
+  }
+  
+  @media only screen and (max-width: 305px) {
+  
+    .details-minus-section > .MuiButtonBase-root {
+      padding: 0 4px;
+    }
+  
+    .details-plus-section > .MuiButtonBase-root {
+      padding: 0 4px;
+    }
+  
+  }
+  
+  @media only screen and (max-width: 294px) {
+  
+    .details-reataurant-rating-cost-info {
+      width: 230px;
+    }
+  
+  }
