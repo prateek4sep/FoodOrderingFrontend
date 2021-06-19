@@ -203,6 +203,12 @@ class Checkout extends Component {
                             </StepContent>
                         </Step>
                     </Stepper>
+                    <div className={this.state.displayChange}>
+                        <Typography style={{marginLeft: 40}} variant='h5'>
+                            View the summary and place your order now!
+                        </Typography>
+                        <Button style={{marginLeft: 40, marginTop: 20}} onClick={this.resetActiveStepHandler}>CHANGE</Button>
+                    </div>
                 </div>
 
             </div>
@@ -238,6 +244,10 @@ class Checkout extends Component {
         if (value === 'existingAddress') {
             this.fetchAddress();
         }
+    }
+
+    resetActiveStepHandler = () => {
+        this.setState({activeStep: 0, displayChange: 'display-none'})
     }
 
     selectAddressHandler = (id) => {
