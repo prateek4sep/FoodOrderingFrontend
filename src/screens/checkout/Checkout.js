@@ -23,7 +23,8 @@ import Typography from "@material-ui/core/Typography";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Grid from "@material-ui/core/Grid";
 import {ADD_ADDRESS_URL, GET_ADDRESS_CUSTOMER_URL, GET_PAYMENT_METHODS_URL, GET_STATES_URL} from "../../common/common";
-import {FormControlLabel, FormLabel, Radio, RadioGroup} from "@material-ui/core";
+import {Card, CardContent, Divider, FormControlLabel, FormLabel, Radio, RadioGroup} from "@material-ui/core";
+import ListCheckoutItems from "../../common/ListCheckoutItems";
 
 class Checkout extends Component {
     constructor() {
@@ -211,6 +212,46 @@ class Checkout extends Component {
                     </div>
                 </div>
 
+                <div className='summary-section'>
+                    <Card variant='elevation' className='summary-card'>
+                        <CardContent style={{margin: "20px"}}>
+                            <Typography variant="h5" component="h2">
+                                Summary
+                            </Typography>
+                            <br/>
+                            <Typography variant='h6' component='h3' color='textSecondary'
+                                        style={{textTransform: "capitalize", marginBottom: 15}}>
+                                {JSON.parse(sessionStorage.getItem("checkoutSummary")).restaurantName}
+                            </Typography>
+                            <div className="checkout-cart-item">
+                                <ListCheckoutItems
+                                    itemsAdded={JSON.parse(sessionStorage.getItem("checkoutSummary")).itemsAddedForOrder}
+                                    page="checkout"
+                                />
+                            </div>
+                            <Divider></Divider>
+                            <div className="checkout-cart-total">
+                                <Typography style={{ fontWeight: 600 }}>
+                                <div>
+                                    <span style={{float: 'left'}}>NET AMOUNT</span>
+                                    <span style={{float: 'right'}}>
+                                        <i className="fa fa-rupee-sign" aria-hidden="true" />{" "}
+                                        {JSON.parse(sessionStorage.getItem("checkoutSummary")).totalAmount.toFixed(2)}
+                                    </span>
+                                </div>
+                                </Typography>
+                            </div>
+                            <br/><br/>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                className="checkout-cart-button"
+                            >
+                                PLACE ORDER
+                            </Button>
+                        </CardContent>
+                    </Card>
+                </div>
             </div>
         </Fragment>
     }
