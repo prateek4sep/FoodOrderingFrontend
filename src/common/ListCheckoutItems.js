@@ -16,9 +16,9 @@ class ListCheckoutItems extends Component {
           <ListItem key={'item1_' + item.id}>
             <div className={this.props.page + "-item-section1"}>
               {item.type === "VEG" ?
-                <i className="far fa-stop-circle-o" aria-hidden="true" style={{ color: "#138313" }}></i>
+                <i className="far fa-stop-circle" aria-hidden="true" style={{ color: "#138313" }}></i>
                 :
-                <i className="far fa-stop-circle-o" aria-hidden="true" style={{ color: "#c30909" }}></i>}
+                <i className="far fa-stop-circle" aria-hidden="true" style={{ color: "#c30909" }}></i>}
             </div>
             <div className={this.props.page + "-item-section2"}>
               <span className={this.props.page + "-item-name"} style={{ color: "grey" }}>
