@@ -8,7 +8,8 @@ export function loginCustomer(encodedCredential) {
     fetch(LOGIN_CUSTOMER_URL, {
       method: "POST",
       headers: {
-        Authorization: `Basic ${encodedCredential}`
+        "Authorization": `Basic ${encodedCredential}`,
+        "Content-Type": "application/json;charset=UTF-8"
       }
     })
       .then(resp => {
