@@ -212,9 +212,8 @@ class LoginModal extends Component {
         .then(async(responseObj) => {
           const response = await responseObj.json();
           if (responseObj.ok) {
-            responseObj.headers.forEach(function(value, name) {
-              console.log(name + ": " + value);
-          });
+            const accessToken = responseObj.headers.get("access-token");
+            localStorage.setItem("access-token",accessToken);
 
             this.setState(
               {
