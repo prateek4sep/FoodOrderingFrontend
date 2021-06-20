@@ -18,11 +18,12 @@ const Header = props => {
     setAnchorEl(event.currentTarget);
   };
 
-  
+  //Menu close Handler
   const menuCloseWindowHandler = () => {
     setAnchorEl(null);
   };
 
+  //Logout customer Handler
   const onLogoutCustomer = () => {
     menuCloseWindowHandler();
     localStorage.clear();
@@ -34,16 +35,19 @@ const Header = props => {
     }
   }
 
+  //Check for user logged in details
   const loggedInDetail = localStorage.getItem("user-information")
     ? JSON.parse(localStorage.getItem("user-information"))
     : null;
 
+    //This will redirect to profile page if clcked on profile menu option
   const onProfileLinkClick = () => {
     props.history.push('/profile');
   }
 
   return (
     <header id="header">
+      {/** Modal for login component*/}
       <LoginModal
         visible={openLoginModal}
         onClose={() => setLoginModal(false)}

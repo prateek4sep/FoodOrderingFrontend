@@ -7,6 +7,7 @@ import {
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
+/** This class will create list of item added for checkout */
 class ListCheckoutItems extends Component {
 
   render() {
