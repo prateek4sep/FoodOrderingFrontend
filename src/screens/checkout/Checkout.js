@@ -90,7 +90,7 @@ class Checkout extends Component {
                                     </AppBar>
                                 </div>
                                 <div className={this.state.activeTab === 'existingAddress' ? 'display-block' : 'display-none'}>
-                                    {this.state.addresses === undefined || this.state.addresses.length === 0 ?
+                                    {this.state.addresses === undefined || this.state.addresses === null || this.state.addresses.length === 0 ?
                                         <Typography style={{marginTop: 10, marginBottom: 250}} color='textSecondary' component='p'>
                                             There are no saved addresses! You can save an address using the 'New
                                             Address' tab or using your ‘Profile’ menu option.
@@ -243,7 +243,7 @@ class Checkout extends Component {
                             </div>
                             <Divider></Divider>
                             <div className="checkout-cart-total">
-                                <Typography style={{ fontWeight: 600 }}>
+                                <Typography style={{ fontWeight: 600 }} component="div">
                                 <div>
                                     <span style={{float: 'left'}}>NET AMOUNT</span>
                                     <span style={{float: 'right'}}>
