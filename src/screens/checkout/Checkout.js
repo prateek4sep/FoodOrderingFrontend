@@ -32,6 +32,7 @@ import {
 import {Card, CardContent, Divider, FormControlLabel, FormLabel, Radio, RadioGroup, Snackbar} from "@material-ui/core";
 import ListCheckoutItems from "../../common/ListCheckoutItems";
 import CloseIcon from "@material-ui/icons/Close";
+import {Redirect} from "react-router-dom";
 
 class Checkout extends Component {
     constructor() {
@@ -69,6 +70,9 @@ class Checkout extends Component {
     }
 
     render() {
+        if (localStorage.getItem('access-token') === null || sessionStorage.getItem('checkoutSummary') === null) {
+            return <Redirect to='/'/>
+        }
         return <Fragment>
             <Header></Header>
             <div className='main-container'>
