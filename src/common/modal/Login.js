@@ -328,7 +328,7 @@ class LoginModal extends Component {
               <Tab label="LOGIN" />
               <Tab label="SIGNUP" />
             </Tabs>
-            {/**This is for login tab form*/s}
+            {/**This is for login tab form*/}
             <TabPanel value={selectedTab} index={0}>
               <FormControl>
                 <InputLabel htmlFor="contact" required>
