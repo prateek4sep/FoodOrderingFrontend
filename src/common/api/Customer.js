@@ -12,11 +12,7 @@ export function loginCustomer(encodedCredential) {
       }
     })
       .then(resp => {
-        let accessToken = resp.headers.get("access-token");
-        localStorage.setItem("access-token", accessToken);
-        resp.json().then(res => {
-          return resolve(res);
-        });
+        return resolve(resp);
       })
       .catch(error => {
         reject(error);
