@@ -42,7 +42,7 @@ class Details extends Component {
   componentDidMount() {
     this.fetchRestaurantDetails(this.state.restaurantId);
   }
-
+  //This function loads the variables with all the restaurant details
   fetchRestaurantDetails(restaurantId) {
     getRestaurantById(restaurantId)
       .then(response => {
@@ -69,13 +69,14 @@ class Details extends Component {
       });
   }
 
+  //This will add item to the cart list
   addItemDetailsHandler = (item, fromCart) => {
     let totalItem = this.state.totalItem + 1;
     let totalAmount = this.state.totalAmount + item.price;
     let itemsInCartTemp = this.state.itemsAddedToCartList;
 
     let itemInCartList;
-
+    //Check for already existed item
     if (this.state.itemsAddedToCartList) {
       itemInCartList = this.state.itemsAddedToCartList.filter(itemInCart => {
         if (itemInCart.id === item.id) {
@@ -114,6 +115,7 @@ class Details extends Component {
     });
   };
 
+  // This function will remove item from cart
   removeItemDetailsHandler = item => {
     let totalItem = this.state.totalItem - 1;
     let totalAmount = this.state.totalAmount - item.unitPrice;
@@ -148,6 +150,7 @@ class Details extends Component {
     });
   };
 
+  /** This method will close Snackbar and set values to state variables */
   itemDetailsSnackBarCloseHandler = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -158,6 +161,9 @@ class Details extends Component {
     });
   };
 
+  /** This method will navigate customer to checkout item selected if all required information is available
+   * and naviagte the customer to Checkout page
+   */
   checkoutDetailsButtonHandler = () => {
     if (this.state.itemsAddedToCartList.length === 0) {
       this.setState({
@@ -188,8 +194,9 @@ class Details extends Component {
   render() {
     return (
       <div>
+        {/**Header is added here */}
         <Header history={this.props.history} />
-
+        {/**This will show if item is added or removed from cart */}
         <Snackbar
           anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
           open={this.state.showItemMessage}
@@ -211,7 +218,7 @@ class Details extends Component {
 
         {Object.keys(this.state.restaurant).length !== 0 ? (
           <div className="details-body-container">
-          
+            {/** This will display restaurant information */}
             <div className="details-restaurant-info-section">
               <div>
                 <img
@@ -270,6 +277,7 @@ class Details extends Component {
               </div>
             </div>
           
+          {/**This will be used to show Restaurant menu and cart section */}
             <div className="details-menu-cart-section">
           
               <div className="details-menu">
