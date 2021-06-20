@@ -60,6 +60,19 @@
     transform: translateZ(0);
 }
 
+.summary-section {
+    width: 30%;
+}
+
+.summary-card {
+    margin-top: 30px;
+    margin-right: 20px;
+}
+
+.summary-heading {
+    margin: 0px;
+}
+
 @media (min-width: 320px) and (max-width: 900px) {
     .main-container {
         height: 100vh;
@@ -69,14 +82,85 @@
     .delivery-payment-section {
         width: 100%;
     }
+
+    .summary-section {
+        width: 100%;
+    }
+
+    .summary-card {
+        margin-left: 20px;
+    }
+}
+
+.checkout-item-name {
+    font-size: 17px;
+}
+
+.checkout-item-section1 {
+    width: 12%;
+}
+
+.checkout-item-section2 {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.checkout-item-section3 {
+    display: flex;
+    align-items:center;
+}
+
+.checkout-item-section4 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 30%;
+    color: grey;
+}
+
+.checkout-item-section3 > button {
+    padding: 0;
+}
+
+.checkout-item-section3 > span {
+    text-align: center;
+}
+
+.checkout-item-section4 > span > .fa-rupee-sign {
+    font-size: 14px;
+    -webkit-text-stroke: .1px white;
+}
+
+.checkout-item-price {
+    font-size: 15px;
+    padding-right: 0px;
+}
+
+.checkout-cart-total {
+    margin-top: 15px;
+}
+
+.checkout-cart-button {
+    width: 100%;
+}
+
+.checkout-cart-item > ul > li {
+    padding: 0;
+    height: 45px;
+    justify-content: space-between;
 }
 
 @media (min-width: 900px) and (max-width: 1400px) {
     .delivery-payment-section{
         width: 58%;
     }
-
+    
     #payment-modes {
         margin-bottom: 15px;
+    }
+
+    .summary-section {
+        width: 42%;
     }
 }
