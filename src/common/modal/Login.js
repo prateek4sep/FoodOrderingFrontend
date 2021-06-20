@@ -52,6 +52,7 @@ TabPanel.propTypes = {
   value: PropTypes.any.isRequired
 };
 
+//mobile number pattern
 let mobileNumber = /^\d{10}$/;
 
 class LoginModal extends Component {
@@ -83,25 +84,28 @@ class LoginModal extends Component {
       signUpResponse: { code: "", message: "" }
     };
   }
-
+// This will be used to switch tabs in login modal
   tabsChangeHandler = (event, newValue) => {
     this.setState({
       selectedTab: newValue
     });
   };
 
+  //This will set value to particular state varible based on user input in Login form
   loginFormValueChangeHandler = (value, field) => {
     this.setState({
       [field]: value
     });
   };
 
+  //This will set value to particular state varible based on user input in signup form
   signUpFormValueChangeHandler = (value, field) => {
     this.setState({
       [field]: value
     });
   };
 
+  // This will signup customer if all the required fields are provided and are in correct format
   signUpCustomerHandler = () => {
     const {
       signUpFirstName,
@@ -189,6 +193,7 @@ class LoginModal extends Component {
     }
   };
 
+  //This will loginn to customer if all required values are provided.otherwise show some useful message
   loginCustomerHandler = () => {
     const { loginContactNo, loginPassword } = this.state;
     if (!loginPassword || !loginContactNo) {
@@ -238,7 +243,7 @@ class LoginModal extends Component {
         });
     }
   };
-
+  //This will reset modal values
   resetModalHandler = () => {
     this.setState(
       {
@@ -305,7 +310,7 @@ class LoginModal extends Component {
           autoHideDuration={5000}
           message={snackBarMessage}
           onClose={() => this.closeSnackBarHandler()} />
-
+        {/**Login or signup modal added here*/}
         <Modal
           isOpen={visible}
           ariaHideApp={false}
@@ -323,7 +328,7 @@ class LoginModal extends Component {
               <Tab label="LOGIN" />
               <Tab label="SIGNUP" />
             </Tabs>
-
+            {/**This is for login tab form*/}
             <TabPanel value={selectedTab} index={0}>
               <FormControl>
                 <InputLabel htmlFor="contact" required>
@@ -375,7 +380,7 @@ class LoginModal extends Component {
                 </Button>
               </div>
             </TabPanel>
-
+            {/**This is for signup tab */}
             <TabPanel value={selectedTab} index={1}>
               <FormControl>
                 <InputLabel htmlFor="signupFirstName" required>
