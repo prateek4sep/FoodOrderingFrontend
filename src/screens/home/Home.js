@@ -28,7 +28,7 @@ class Home extends Component {
   componentDidMount() {
     this.loadAllRestaurants();
   }
-
+//This will load all the restaurant details into state varible
   loadAllRestaurants() {
     getRestaurant()
       .then(response => {
@@ -50,6 +50,7 @@ class Home extends Component {
       });
   }
 
+  //This will load restaurant details based on restaurant name into state varible
   searchRestaurantByName = restaurantName => {
     if (restaurantName) {
       getRestaurantByName(restaurantName)
@@ -81,7 +82,7 @@ class Home extends Component {
       message: ""
     });
   };
-
+  //This will navigate to particular restaurant when clicked on it
   resturantCardClickHandler = restaurantId => {
     this.props.history.push("/restaurant/" + restaurantId);
   };
@@ -96,6 +97,7 @@ class Home extends Component {
     } = this.state;
     return (
       <div>
+        {/**Header is added here */}
         <Header
           searchVal={searchVal}
           handleLoginModal={() => this.loginModalHandler()}
@@ -112,7 +114,7 @@ class Home extends Component {
           onClose={() => this.closeSnackbarHandler()}
           className="snackbar"
         ></Snackbar>
-
+        {/**Restaurant card details added here */}
         <div className="home-page-container">
           <Grid
             container

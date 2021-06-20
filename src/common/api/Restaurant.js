@@ -3,7 +3,7 @@ import {
   GET_RESTAURANT_BY_NAME_URL,
   GET_RESTAURANT_BY_ID_URL
 } from "../common";
-
+//Function to fetch all the restaurants available in database
 export function getRestaurant() {
   return new Promise(function (resolve, reject) {
     fetch(GET_RESTAURANT_URL)
@@ -18,6 +18,7 @@ export function getRestaurant() {
   });
 }
 
+//Function to fetch list of restaurants based on restaurant name
 export function getRestaurantByName(restaurantName) {
   return new Promise(function (resolve, reject) {
     fetch(`${GET_RESTAURANT_BY_NAME_URL}${restaurantName}`)
@@ -32,6 +33,7 @@ export function getRestaurantByName(restaurantName) {
   });
 }
 
+//function to fetch restaurant details based on restaurasnt UUID
 export function getRestaurantById(restaurantID) {
   return new Promise(function (resolve, reject) {
     fetch(`${GET_RESTAURANT_BY_ID_URL}${restaurantID}`)
