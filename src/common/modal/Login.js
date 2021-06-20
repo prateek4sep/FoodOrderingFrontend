@@ -209,15 +209,13 @@ class LoginModal extends Component {
     } else {
       let encodedCredential = window.btoa(`${loginContactNo}:${loginPassword}`);
       loginCustomer(encodedCredential)
-        .then(response => {
-          if (response && response.code) {
-            this.setState({
-              loginError: true,
-              loginResponse: { code: response.code, message: response.message },
-              errorContactNo: "",
-              errorPassword: ""
-            });
-          } else {
+        .then(async(responseObj) => {
+          const response = await responseObj.json();
+          if (responseObj.ok) {
+            responseObj.headers.forEach(function(value, name) {
+              console.log(name + ": " + value);
+          });
+
             this.setState(
               {
                 showSnackbarComponent: true,
@@ -231,6 +229,13 @@ class LoginModal extends Component {
                 this.resetModalHandler();
               }
             );
+          } else {
+            this.setState({
+              loginError: true,
+              loginResponse: { code: response.code, message: response.message },
+              errorContactNo: "",
+              errorPassword: ""
+            });
           }
         })
         .catch(error => {
