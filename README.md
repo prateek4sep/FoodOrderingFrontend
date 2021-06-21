@@ -4,7 +4,7 @@ Typical food ordering app like zomato and swiggy built using REACT.
 
 ## Visuals
 
-
+https://user-images.githubusercontent.com/62150157/122784094-c760b880-d2cf-11eb-8455-a36c427d1b4a.mp4
 
 ## Installation
 
