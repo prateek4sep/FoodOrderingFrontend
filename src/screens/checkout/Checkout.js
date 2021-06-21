@@ -74,17 +74,15 @@ class Checkout extends Component {
         if (localStorage.getItem('access-token') === null || sessionStorage.getItem('checkoutSummary') === null) {
             return <Redirect to='/'/>
         }
-        return <Fragment>
-            // Header
+        return(
+            <Fragment>
             <Header history={this.props.history}></Header>
 
             <div className='main-container'>
-
-                // Delivery and Payment section
+                {/* // Delivery and Payment section */}
                 <div className='delivery-payment-section'>
                     <Stepper activeStep={this.state.activeStep} orientation='vertical'>
-
-                        // Delivery Step
+                        {/* // Delivery Step */}
                         <Step key='Delivery'>
                             <StepLabel>Delivery</StepLabel>
                             <StepContent>
@@ -97,7 +95,7 @@ class Checkout extends Component {
                                     </AppBar>
                                 </div>
 
-                                // Existing Address Tab
+                                {/* // Existing Address Tab */}
                                 <div className={this.state.activeTab === 'existingAddress' ? 'display-block' : 'display-none'}>
                                     {this.state.addresses === undefined || this.state.addresses === null || this.state.addresses.length === 0 ?
                                         <Typography style={{marginTop: 10, marginBottom: 250}} color='textSecondary' component='p'>
@@ -136,7 +134,7 @@ class Checkout extends Component {
                                     }
                                 </div>
 
-                                // New Address Tab
+                                {/* // New Address Tab */}
                                 <div id='new-address-display' className={this.state.activeTab === 'newAddress' ? 'display-block' : 'display-none'}>
                                     <FormControl style={{maxWidth: 300}}>
                                         <InputLabel htmlFor='flat'>Flat/Building No</InputLabel>
@@ -209,7 +207,7 @@ class Checkout extends Component {
                             </StepContent>
                         </Step>
 
-                        // Payment Selection Section
+                        {/* // Payment Selection Section */}
                         <Step key='Payment'>
                             <StepLabel>Payment</StepLabel>
                             <StepContent>
@@ -237,7 +235,7 @@ class Checkout extends Component {
                     </div>
                 </div>
 
-                // Order Summary Section
+                {/* // Order Summary Section */}
                 <div className='summary-section'>
                     <Card variant='elevation' className='summary-card'>
                         <CardContent style={{margin: "20px"}}>
@@ -281,7 +279,7 @@ class Checkout extends Component {
                 </div>
             </div>
 
-            // Order success/error snackbar.
+            {/* // Order success/error snackbar. */}
             <div>
                 <Snackbar anchorOrigin={{vertical: 'bottom', horizontal: 'left'}} key='01'
                           message={this.state.placeOrderMessage}
@@ -292,6 +290,7 @@ class Checkout extends Component {
                                                          onClick={this.placeOrderMessageClose}><CloseIcon/></IconButton></Fragment>}/>
             </div>
         </Fragment>
+        );
     }
 
     // Sets the payment mode selected by the user.
