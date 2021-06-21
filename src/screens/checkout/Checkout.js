@@ -61,6 +61,7 @@ class Checkout extends Component {
         }
     }
 
+    // Hook that gets invoked right after a React component has been mounted aka after the first render() lifecycle.
     componentDidMount() {
         if ( localStorage.getItem('access-token') !== null) {
             this.fetchAddress();
@@ -74,10 +75,16 @@ class Checkout extends Component {
             return <Redirect to='/'/>
         }
         return <Fragment>
-            <Header></Header>
+            // Header
+            <Header history={this.props.history}></Header>
+
             <div className='main-container'>
+
+                // Delivery and Payment section
                 <div className='delivery-payment-section'>
                     <Stepper activeStep={this.state.activeStep} orientation='vertical'>
+
+                        // Delivery Step
                         <Step key='Delivery'>
                             <StepLabel>Delivery</StepLabel>
                             <StepContent>
@@ -89,6 +96,8 @@ class Checkout extends Component {
                                         </Tabs>
                                     </AppBar>
                                 </div>
+
+                                // Existing Address Tab
                                 <div className={this.state.activeTab === 'existingAddress' ? 'display-block' : 'display-none'}>
                                     {this.state.addresses === undefined || this.state.addresses === null || this.state.addresses.length === 0 ?
                                         <Typography style={{marginTop: 10, marginBottom: 250}} color='textSecondary' component='p'>
@@ -126,6 +135,8 @@ class Checkout extends Component {
                                         </GridList>
                                     }
                                 </div>
+
+                                // New Address Tab
                                 <div id='new-address-display' className={this.state.activeTab === 'newAddress' ? 'display-block' : 'display-none'}>
                                     <FormControl style={{maxWidth: 300}}>
                                         <InputLabel htmlFor='flat'>Flat/Building No</InputLabel>
@@ -185,7 +196,7 @@ class Checkout extends Component {
                                     <br/>
                                     <br/>
                                     <FormControl style={{maxWidth: 150}}>
-                                        <Button variant='contained' color='secondary' onClick={this.saveAddress}>SAVE
+                                        <Button variant='contained' color='secondary' onClick={this.saveAddressHandler}>SAVE
                                             ADDRESS</Button>
                                     </FormControl>
                                 </div>
@@ -193,10 +204,12 @@ class Checkout extends Component {
                                 <div>
                                     <Button style={{margin: 5}} disabled={this.state.activeStep === 0}>Back</Button>
                                     <Button style={{margin: 5}} className='button' variant="contained" color="primary"
-                                            onClick={this.incrementActiveStep}>Next</Button>
+                                            onClick={this.incrementActiveStepHandler}>Next</Button>
                                 </div>
                             </StepContent>
                         </Step>
+
+                        // Payment Selection Section
                         <Step key='Payment'>
                             <StepLabel>Payment</StepLabel>
                             <StepContent>
@@ -211,8 +224,8 @@ class Checkout extends Component {
                                         </RadioGroup>
                                     </FormControl>
                                 </div>
-                                <Button style={{margin: 5}} onClick={this.decrementActiveStep}>Back</Button>
-                                <Button style={{margin: 5}} variant="contained" color="primary" onClick={this.incrementActiveStep}>Finish</Button>
+                                <Button style={{margin: 5}} onClick={this.decrementActiveStepHandler}>Back</Button>
+                                <Button style={{margin: 5}} variant="contained" color="primary" onClick={this.incrementActiveStepHandler}>Finish</Button>
                             </StepContent>
                         </Step>
                     </Stepper>
@@ -224,6 +237,7 @@ class Checkout extends Component {
                     </div>
                 </div>
 
+                // Order Summary Section
                 <div className='summary-section'>
                     <Card variant='elevation' className='summary-card'>
                         <CardContent style={{margin: "20px"}}>
@@ -266,6 +280,8 @@ class Checkout extends Component {
                     </Card>
                 </div>
             </div>
+
+            // Order success/error snackbar.
             <div>
                 <Snackbar anchorOrigin={{vertical: 'bottom', horizontal: 'left'}} key='01'
                           message={this.state.placeOrderMessage}
@@ -278,15 +294,17 @@ class Checkout extends Component {
         </Fragment>
     }
 
+    // Sets the payment mode selected by the user.
     paymentSelectionHandler = (e) => {
         this.setState({'paymentId': e.target.value});
     }
 
-    incrementActiveStep = () => {
+    // On clicking Next in the step move to the next step.
+    incrementActiveStepHandler = () => {
         if (this.state.activeStep === 0 && this.state.selectedAddressId === undefined) {
-
+            // No action if the user is at address step and address is not selected.
         } else if (this.state.activeStep === 1 && this.state.paymentId === '') {
-
+            // No action if the user is at payment step and payment is not selected.
         } else {
             let activeState = this.state.activeStep + 1;
             let changeAddressPayment = 'display-none';
@@ -297,11 +315,13 @@ class Checkout extends Component {
         }
     }
 
-    decrementActiveStep = () => {
+    // On clicking Beck in the step move to the previous step.
+    decrementActiveStepHandler = () => {
         let activeState = this.state.activeStep - 1;
         this.setState({activeStep: activeState})
     }
 
+    // Switch between new and existing address tab.
     changeActiveTabHandler = (value) => {
         this.setState({activeTab: value})
         if (value === 'existingAddress') {
@@ -309,14 +329,17 @@ class Checkout extends Component {
         }
     }
 
+    // On clicking Change, reset the step state to the initial state.
     resetActiveStepHandler = () => {
         this.setState({activeStep: 0, displayChange: 'display-none'})
     }
 
+    // Sets the address selected by the user.
     selectAddressHandler = (id) => {
         this.setState({selectedAddressId: id})
     }
 
+    // Triggered on input field change under New Address and perform necessary validations.
     onInputFieldChangeHandler = (e) => {
         let stateKey = e.target.id;
         let stateValue = e.target.value;
@@ -339,6 +362,7 @@ class Checkout extends Component {
         });
     }
 
+    // Validates a 6 digit pincode
     validatePincode = (pincode) => {
         if (pincode !== undefined && pincode.length !== 6) {
             return false;
@@ -349,10 +373,12 @@ class Checkout extends Component {
         }
     }
 
+    // For Closing the snackbar.
     placeOrderMessageClose = () => {
         this.setState({placeOrderMessageOpen: false});
     }
 
+    // Fetch the existing addresses from the backend.
     fetchAddress = () => {
         let token = localStorage.getItem('access-token');
         let xhr = new XMLHttpRequest();
@@ -370,6 +396,7 @@ class Checkout extends Component {
         xhr.send();
     }
 
+    // Fetches the list of states from the backend.
     fetchStates = () => {
 
         let xhr = new XMLHttpRequest();
@@ -386,7 +413,8 @@ class Checkout extends Component {
         xhr.send();
     }
 
-    saveAddress = () => {
+    // Save Address in the database for a new address entered.
+    saveAddressHandler = () => {
         let tempCityRequired = false;
         let tempPincodeRequired = false;
         let tempFlatRequired = false;
@@ -456,6 +484,7 @@ class Checkout extends Component {
         xhr.send(JSON.stringify(address));
     }
 
+    // Fetches the payment modes from the backend.
     fetchPayments = () => {
         let xhr = new XMLHttpRequest();
         let that = this;
@@ -471,6 +500,7 @@ class Checkout extends Component {
         xhr.send();
     }
 
+    // Place order and save to database or throw an error in case of incorrect or invalid entries.
     placeOrderHandler = () => {
         let orderDetails = JSON.parse(sessionStorage.getItem("checkoutSummary"));
         let amount = orderDetails.totalAmount.toFixed(2);
