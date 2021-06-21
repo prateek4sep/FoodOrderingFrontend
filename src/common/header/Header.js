@@ -9,6 +9,7 @@ import {
 import { Fastfood, Search, AccountCircle } from "@material-ui/icons";
 import LoginModal from "../modal/Login";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 const Header = props => {
   const [openLoginModal, setLoginModal] = useState(false);
@@ -54,9 +55,11 @@ const Header = props => {
       />
 
       <div className="header-container">
-        <div className="header-logo">
-          <Fastfood />
-        </div>
+        <Link to="/" style={{textDecoration:"none",color:"white"}}>
+          <div className="header-logo">
+              <Fastfood />
+          </div>
+        </Link>
         {props.isHomePage ? (
           <div className="header-search">
             <TextField
