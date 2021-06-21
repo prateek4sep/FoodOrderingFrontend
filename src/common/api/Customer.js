@@ -8,15 +8,12 @@ export function loginCustomer(encodedCredential) {
     fetch(LOGIN_CUSTOMER_URL, {
       method: "POST",
       headers: {
-        Authorization: `Basic ${encodedCredential}`
+        "Authorization": `Basic ${encodedCredential}`,
+        "Content-Type": "application/json;charset=UTF-8"
       }
     })
       .then(resp => {
-        let accessToken = resp.headers.get("access-token");
-        localStorage.setItem("access-token", accessToken);
-        resp.json().then(res => {
-          return resolve(res);
-        });
+        return resolve(resp);
       })
       .catch(error => {
         reject(error);
