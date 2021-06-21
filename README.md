@@ -4,9 +4,7 @@ Typical food ordering app like zomato and swiggy built using REACT.
 
 ### Note
 
-This is just a FRONTEND module, must be paired with a BACKEND module for full functionality
-
-[Clone BACKEND module](https://github.com/prateek4sep/FoodOrderingBackend)
+This is just a FRONTEND module, must be paired with a BACKEND module for full functionality.
 
 ## Visuals
 
